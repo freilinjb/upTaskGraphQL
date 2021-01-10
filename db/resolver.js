@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario');
+const bcrytjs = require('bcryptjs');
 
  /*Los resolver son funciones
  que son responsable de retornar los valores
@@ -23,9 +24,15 @@ const Usuario = require('../models/Usuario');
             } 
             
             try {
-                const nuevoUsuario = new Usuario(input);
-                console.log(nuevoUsuario);
+                //Hashear password
+                const salt = await bcrytjs.genSalt(10);
+                input.password = await bcrytjs.hash(password, salt);
 
+                // console.log(input);
+
+                
+                //Registrar nuevo usuario
+                const nuevoUsuario = new Usuario(input);
                 nuevoUsuario.save(); //Para guardar el registro
                 
                 //La funcion tiene que devolver un String porque asi se definio en schema
