@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server');
 
 // type Curso es el typeDefinition
+
+//Datos de consulta
 const typeDefs = gql`
     
     type Curso {

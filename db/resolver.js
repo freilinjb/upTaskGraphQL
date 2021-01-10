@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario');
+const Proyecto = require('../models/Proyecto');
 const bcrytjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config({path: 'variables.env'});
@@ -79,7 +80,16 @@ const crearToken = (usuario, secreta, expiresIn) => {
 
         },
         nuevoProyecto: async (_, { input }) => {
-            console.log('Creando Proyecto...');
+            try {
+                const proyecto = new Proyecto(input);
+                //Almacenarlo en la DB
+                const resultado = await proyecto.save();
+
+                return resultado;
+                
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 }
