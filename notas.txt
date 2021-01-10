@@ -12,3 +12,14 @@ mutation {
     password: "1423"
   })
 }
+
+
+#Probando el JSON Web Token
+mutation {
+  autenticarUsuario(input: {
+    	email: "freilinjb@gmail.com",
+    	password: "1423"
+  }) {
+    token
+  }
+}
