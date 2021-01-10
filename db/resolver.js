@@ -77,6 +77,9 @@ const crearToken = (usuario, secreta, expiresIn) => {
                 token: crearToken(existeUsuario, process.env.SECRETA, '2hr')
             };
 
+        },
+        nuevoProyecto: async (_, { input }) => {
+            console.log('Creando Proyecto...');
         }
     }
 }
