@@ -21,6 +21,11 @@ var cursos = [
     Query: {
         obtenerCursos: () => cursos,
         obtenerTecnologia: () => cursos
+    },
+    Mutation: {
+        crearUsuario: () => {
+            console.log('Creando Usuario');
+        }
     }
 }
 

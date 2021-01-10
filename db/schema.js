@@ -16,6 +16,10 @@ const typeDefs = gql`
         obtenerCursos : [Curso]
         obtenerTecnologia: [Tecnologia]
     }
+
+    type Mutation {
+        crearUsuario: String
+    }
 `;
 
 module.exports = typeDefs;

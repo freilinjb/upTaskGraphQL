@@ -1,0 +1,4 @@
+#para llamar la funcion mutation en grafical
+mutation {
+  crearUsuario
+}
