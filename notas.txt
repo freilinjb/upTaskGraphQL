@@ -2,3 +2,13 @@
 mutation {
   crearUsuario
 }
+
+#realizando registro de prueba en grafical
+El signo de exclamacion indica que el campo es obligatorio en el schema
+mutation {
+  crearUsuario(input: {
+    nombre: "Freilin Jose",
+    email: "freilinjb@gmail.com",
+    password: "1423"
+  })
+}
