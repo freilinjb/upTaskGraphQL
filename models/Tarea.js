@@ -7,7 +7,7 @@ const TareaSchema = new mongoose.Schema({
         trim: true
     },
     proyecto: {
-        type: mongoose.SchemaType.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Proyecto'
     },
     creador: {

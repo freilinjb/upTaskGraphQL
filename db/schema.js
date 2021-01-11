@@ -14,6 +14,13 @@ const typeDefs = gql`
         id: ID
     }
 
+    type Tarea {
+        nombre: String
+        id: ID
+        proyecto: String
+        estado: Boolean
+    }
+
     type Query {
         obtenerProyectos: [Proyecto]
     }
@@ -33,8 +40,14 @@ const typeDefs = gql`
         nombre: String!
     }
 
+    input TareaInput {
+        nombre: String!
+        proyecto: String!
+    }
+
     
     type Mutation {
+        #Proyectos
         crearUsuario(input: UsuarioInput): String
         autenticarUsuario(input: AutenticarInput ) : Token
         nuevoProyecto(input: ProyectoInput) : Proyecto
@@ -42,6 +55,9 @@ const typeDefs = gql`
         #id: ID! es para especificar reutilizar el proyecto Input y 
         #espesifica que se requiere el id del proyecto
         eliminarProyecto(id: ID!) : String
+
+        #Tareas
+        nuevaTarea(input: TareaInput) : Tarea
     }
 `;
 

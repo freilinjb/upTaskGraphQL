@@ -57,3 +57,17 @@ mutation {
     id
   }
 }
+
+#Registrando nueva tarea
+mutation{
+  nuevaTarea(input: {
+    nombre: "Seleccionar DB"
+    proyecto: "5ffba77939faa5139892b6df"
+    
+  }) {
+    nombre
+    id
+    estado
+    proyecto
+  }
+}
