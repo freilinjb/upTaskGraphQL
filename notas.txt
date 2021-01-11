@@ -33,3 +33,18 @@ mutation {
     id
   }
 }
+
+#probando el header con este metodo
+mutation {
+  nuevoProyecto(input: {
+    nombre: "juanr@gmail.com"
+  }) {
+    nombre
+    id
+  }
+}
+
+#HEADER Grafica
+{
+  "authorization" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmI0MGZhNmM5ZDlhMzVkODU1OTUwMSIsImVtYWlsIjoianVhbnJAZ21haWwuY29tIiwiaWF0IjoxNjEwMzIyODUyLCJleHAiOjE2MTAzMzAwNTJ9.uCZ8GB7bjpnYWz8qIBX0Ufa48y1jNV93aDF0O5684Jc"
+}

@@ -79,14 +79,21 @@ const crearToken = (usuario, secreta, expiresIn) => {
             };
 
         },
-        nuevoProyecto: async (_, { input }) => {
+        nuevoProyecto: async (_, { input }, ctx) => {
+            console.log('DESDE EL RESOLVER ctx: ', ctx);
+
             try {
                 const proyecto = new Proyecto(input);
                 //Almacenarlo en la DB
+
+                //Asocial el proyecto al creaado
+                proyecto.creador = ctx.usuario.id;
+                console.log('ctx: ', ctx);
+
                 const resultado = await proyecto.save();
 
                 return resultado;
-                
+
             } catch (error) {
                 console.log(error);
             }
