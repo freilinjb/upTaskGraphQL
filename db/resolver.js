@@ -97,6 +97,29 @@ const crearToken = (usuario, secreta, expiresIn) => {
             } catch (error) {
                 console.log(error);
             }
+        },
+        actualizarProyecto: async (_, {id, input }, ctx) => {
+            //Revisar que exista el proyecto
+            let proyecto = await Proyecto.findById(id);
+
+            if(!proyecto) {
+                throw new Error('Proyecto no encontrado');
+            }
+
+            // console.log(proyecto);
+            // console.log(typeof proyecto.creador); devuelve un objeto hay que convertirlo a String
+
+            //Verificar que la persona que trata de editarlo, es el creador
+            console.log('idUsuario',proyecto.creador.toString());
+            console.log('idUsuario', ctx.usuario.id);
+            if(proyecto.creador.toString() !== ctx.usuario.id) {
+                throw new Error('No tienes las credenciales para editar');
+            }
+
+            //Guardar el proyecto
+            proyecto = await Proyecto.findByIdAndUpdate({_id: id}, input, {new: true});
+            //new: true, retorna el proyecto actualizado
+            return proyecto;
         }
     }
 }

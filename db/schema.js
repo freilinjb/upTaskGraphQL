@@ -25,7 +25,6 @@ const typeDefs = gql`
     }
 
     type Query {
-        obtenerCursos : [Curso]
         obtenerTecnologia: [Tecnologia]
     }
 
@@ -49,7 +48,10 @@ const typeDefs = gql`
         crearUsuario(input: UsuarioInput): String
         autenticarUsuario(input: AutenticarInput ) : Token
         nuevoProyecto(input: ProyectoInput) : Proyecto
+        actualizarProyecto(id : ID!, input: ProyectoInput) : Proyecto
+        #id: ID! es para especificar reutilizar el proyecto Input y espesifica que se requiere el id del proyecto
     }
 `;
+
 
 module.exports = typeDefs;
