@@ -18,7 +18,11 @@ const crearToken = (usuario, secreta, expiresIn) => {
  que existen en el esquema*/
  const resulvers = {
     Query: {
-        
+        obtenerProyectos: async (_, {}, ctx) => {
+            const proyectos = await Proyecto.find({ creador: ctx.usuario.id});
+
+            return proyectos;
+        }
     },
     Mutation: {
         //primero: root, es el resultado del type padre o del type padre

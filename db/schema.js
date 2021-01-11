@@ -4,17 +4,7 @@ const { gql } = require('apollo-server');
 
 //Datos de consulta
 const typeDefs = gql`
-    
-    type Curso {
-        titulo: String
-        tecnologia: String
-    }
 
-    type Tecnologia {
-        tecnologia: String
-    }
-
-    
     type Token {
         token: String
     }
@@ -25,7 +15,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        obtenerTecnologia: [Tecnologia]
+        obtenerProyectos: [Proyecto]
     }
 
     input UsuarioInput {
