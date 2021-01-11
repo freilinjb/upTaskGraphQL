@@ -39,7 +39,9 @@ const typeDefs = gql`
         autenticarUsuario(input: AutenticarInput ) : Token
         nuevoProyecto(input: ProyectoInput) : Proyecto
         actualizarProyecto(id : ID!, input: ProyectoInput) : Proyecto
-        #id: ID! es para especificar reutilizar el proyecto Input y espesifica que se requiere el id del proyecto
+        #id: ID! es para especificar reutilizar el proyecto Input y 
+        #espesifica que se requiere el id del proyecto
+        eliminarProyecto(id: ID!) : String
     }
 `;
 
