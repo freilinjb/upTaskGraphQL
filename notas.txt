@@ -104,3 +104,19 @@ mutation {
 mutation {
   eliminarTarea(id: "5ffc8209a6735f1504c942bd")
 }
+
+
+#Creando usuario con variables
+
+mutation crearUsuario ($input: UsuarioInput) {
+  crearUsuario(input: $input)
+}
+
+#QUERY VARIABLES EN grafical
+{
+  "input": {
+    "nombre": "Freilin Jose",
+    "email": "freilinjb@gmail.com",
+    "password": "1423"
+  }
+}
