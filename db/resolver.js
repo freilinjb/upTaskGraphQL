@@ -24,6 +24,11 @@ const crearToken = (usuario, secreta, expiresIn) => {
             const proyectos = await Proyecto.find({ creador: ctx.usuario.id});
 
             return proyectos;
+        },
+        obtenerTareas: async (_, {input}, ctx) => {
+            console.log(ctx);
+            const tareas = await Tarea.find({creador: ctx.usuario.id}).where('proyecto').equals(input.proyecto);
+            return tareas;
         }
     },
     Mutation: {

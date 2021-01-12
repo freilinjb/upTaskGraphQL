@@ -87,3 +87,15 @@ mutation {
     proyecto
   }
 }
+
+
+#listar tareas
+{
+  obtenerTareas(input: {
+    proyecto: "5ffba77939faa5139892b6df"
+  }) {
+    nombre
+    proyecto
+    estado
+  }
+}
