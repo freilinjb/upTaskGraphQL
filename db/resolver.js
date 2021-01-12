@@ -179,6 +179,24 @@ const crearToken = (usuario, secreta, expiresIn) => {
             tarea = await Tarea.findOneAndUpdate({_id: id}, input, {new: true} );
 
             return tarea;
+        },
+        eliminarTarea: async (_, {id, input, estado}, ctx) => {
+            //Si la tarea existe o no   
+            let tarea = await Tarea.findById(id);
+
+            if(!tarea) {
+                throw new Error('Tarea no encontrada');
+            }
+
+            //Si la persona que edita es el creador
+            if(tarea.creador.toString() !== ctx.usuario.id) {
+                throw new Error('No tienes las credenciales para editar');
+             }
+
+             //Eliminar
+             await Tarea.findOneAndDelete({_id: id});
+
+             return "Tarea Eliminada";
         }
     }
 }

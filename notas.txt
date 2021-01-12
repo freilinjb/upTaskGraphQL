@@ -99,3 +99,8 @@ mutation {
     estado
   }
 }
+
+#Eliminar tareas
+mutation {
+  eliminarTarea(id: "5ffc8209a6735f1504c942bd")
+}
