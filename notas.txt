@@ -71,3 +71,19 @@ mutation{
     proyecto
   }
 }
+
+#Actualizar tarea
+mutation {
+  actualizarTarea(id: "5ffc8199a6735f1504c942ba"
+ 		input: {
+      nombre: "Soy tu padre"
+      proyecto: "5ffba77939faa5139892b6df"
+    } 
+    estado:true
+  ) {
+    nombre
+    id
+    estado
+    proyecto
+  }
+}
