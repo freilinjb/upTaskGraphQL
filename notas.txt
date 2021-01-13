@@ -120,3 +120,19 @@ mutation crearUsuario ($input: UsuarioInput) {
     "password": "1423"
   }
 }
+
+#Autenticar usuario con variables
+mutation autenticarUsuario ($input: AutenticarInput) {
+  autenticarUsuario(input: $input) {
+    token
+  }
+}
+
+
+QUERY VARIABLES
+{
+  "input": {
+    "email": "freilinjb@gmail.com",
+    "password": "123456"
+  }
+}
