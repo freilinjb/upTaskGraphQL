@@ -18,12 +18,16 @@ const server = new ApolloServer({
     en todos los resolver y funciona y igual que el req y el res de nodejs
     */
     context: ({req}) => {
+        // console.log(req.headers['authorization']);
         const token = req.headers['authorization'] || '';
         // console.log(req.headers);
         // console.log('token: ', token);
         if(token) {
             try {
-                const usuario = jwt.verify(token, process.env.SECRETA);
+                const usuario = jwt.verify(token.replace('Bearer ',''), process.env.SECRETA);
+                console.log('usuario: ', usuario);
+                //Probando del video [Enviando el Storage hacia el servidor],
+                // probando el login
                 return {
                     usuario
                 }

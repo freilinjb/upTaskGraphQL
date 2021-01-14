@@ -8,11 +8,11 @@ require('dotenv').config({path: 'variables.env'});
 
 //Crear y firma un JWT
 const crearToken = (usuario, secreta, expiresIn) => {
-    console.log('usuario: ', usuario);
-    const { id, email } = usuario;
+    // console.log('usuario: ', usuario);
+    const { id, email, nombre } = usuario;
 
     //Firmamos el jwt
-    return jwt.sign({id, email}, secreta, { expiresIn });
+    return jwt.sign({id, email, nombre}, secreta, { expiresIn });
 }
 
  /*Los resolver son funciones
@@ -26,7 +26,7 @@ const crearToken = (usuario, secreta, expiresIn) => {
             return proyectos;
         },
         obtenerTareas: async (_, {input}, ctx) => {
-            console.log(ctx);
+            // console.log(ctx);
             const tareas = await Tarea.find({creador: ctx.usuario.id}).where('proyecto').equals(input.proyecto);
             return tareas;
         }
@@ -86,7 +86,7 @@ const crearToken = (usuario, secreta, expiresIn) => {
 
             //Dar acceso a la app
             return {
-                token: crearToken(existeUsuario, process.env.SECRETA, '2hr')
+                token: crearToken(existeUsuario, process.env.SECRETA, '4hr')
             };
 
         },
